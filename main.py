@@ -44,12 +44,12 @@ async def apr(ctx):
     await ctx.send(f"``Yield for $NLS staking: {nolus.inflation}``")
 
 
-@tasks.loop(minutes=3)
+@tasks.loop(minutes=2)
 async def update():
         print ("Updating...")
         start = time.time()
         await nolus.update_values()
-        print("Stats updated in %s seconds" % (time.time() - start))
+        print("Stats updated in %s seconds" % int(time.time() - start))
         print ("Message Updated at " + (nolus.time_updated))
          
 BOT_TOKEN = os.environ.get("DISCORD_KEY")
